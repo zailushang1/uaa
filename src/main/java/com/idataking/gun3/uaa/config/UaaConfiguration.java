@@ -13,6 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -149,7 +150,7 @@ public class UaaConfiguration extends AuthorizationServerConfigurerAdapter imple
             .authenticationManager(authenticationManager)
             .tokenStore(tokenStore())
             .tokenEnhancer(tokenEnhancerChain)
-            .reuseRefreshTokens(false);             //don't reuse or we will run into session inactivity timeouts
+            .reuseRefreshTokens(false);//don't reuse or we will run into session inactivity timeouts
     }
 
     @Autowired
